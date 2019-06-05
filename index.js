@@ -1,4 +1,4 @@
-const body = document.querySelector("body");
+const bodyUl = document.querySelector("body ul");
 
 function submitData(userName, userEmail) {
   const user = {
@@ -17,22 +17,19 @@ function submitData(userName, userEmail) {
 
   return fetch("http://localhost:3000/users", options)
     .then(res => res.json())
-    .then(showUsers) //callback function for what we want to do with this actual data when we're done waiting for fetch
-    .catch(error => console.error(`Error: ${error}`))
+    // .then(data => console.log(data))
+    .then(addUserIdToDom) //callback function for what we want to do with this actual data when we're done waiting for fetch
+    // .catch(addErrorToDom)
 }
 
-function addNewUsersToDom(users){
-  users.forEach(user => {
-    body.appendChild
-  });
+function addUserIdToDom(user){
+  const uid = user.id;
+  console.log(user);
+  const li = document.createElement("li");
+  li.innerHTML = `${uid}`
+  bodyUl.appendChild(li)
 }
 
-function createUserCard(user){
-  const body = document.querySelector("body");
+// function addErrorToDom(err) {
 
-  users.forEach(user => {
-
-    body.appendChild
-  });
-}
-
+// }

@@ -19,17 +19,16 @@ function submitData(userName, userEmail) {
     .then(res => res.json())
     // .then(data => console.log(data))
     .then(addUserIdToDom) //callback function for what we want to do with this actual data when we're done waiting for fetch
-    // .catch(addErrorToDom)
+    .catch(addErrorToDom)
 }
 
 function addUserIdToDom(user){
   const uid = user.id;
-  console.log(user);
   const li = document.createElement("li");
   li.innerHTML = `${uid}`
   bodyUl.appendChild(li)
 }
 
-// function addErrorToDom(err) {
-
-// }
+function addErrorToDom(err) {
+  document.body.append(err)
+}
